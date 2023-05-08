@@ -1,0 +1,13 @@
+YESTERDAY=$(date -d "yesterday" +%Y-%m-%d)
+if [[ $(date -d "$YESTERDAY" +%u) -eq 6 ]]; then
+  YESTERDAY=$(date -d "$YESTERDAY -1 day" +%Y-%m-%d)
+elif [[ $(date -d "$YESTERDAY" +%u) -eq 7 ]]; then
+  YESTERDAY=$(date -d "$YESTERDAY -2 days" +%Y-%m-%d)
+fi
+
+echo "Yesterday's date (skipping weekends): $YESTERDAY"
+
+
+YESTERDAY=$(date -d "yesterday" +%Y-%m-%d)
+[[ $(date -d "$YESTERDAY" +%u) -eq 6 ]] && YESTERDAY=$(date -d "$YESTERDAY -1 day" +%Y-%m-%d)
+[[ $(date -d "$YESTERDAY" +%u) -eq 7 ]] && YESTERDAY=$(date -d "$YESTERDAY -2 days" +%Y-%m-%d)
